@@ -17,7 +17,7 @@ app.use(cors());
 
 
 //MongoDB Connection Setup
-mongoose.connect('mongodb+srv://Jeeva:Jeeva12345@cluster0.7wb6jvt.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://Jeeva:Jeeva12345@cluster0.7wb6jvt.mongodb.net/products', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -113,7 +113,7 @@ const scrapeSnapdeal = async () => {
 
     const products = [];
 
-    $('.product-tuple-listing').each((index, element) => {
+    $('.product-tuple-listing').each((idx, ele) => {
       const image = $(element).find('img.product-image').attr('src');
       const title = $(element).find('p.product-title').text().trim();
       const rating = $(element).find('span.product-rating-count').text().trim();
